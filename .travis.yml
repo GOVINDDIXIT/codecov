@@ -8,11 +8,13 @@ android:
 script:
         - ./gradlew build
         - ./gradlew test
+        - ./gradlew connectedAndroidTest
         - ./gradlew build jacocoTestReport
 before_install:
         - chmod +x gradlew
 branches:
         only:
                 - master
+                - develop
 after_success:
   - bash <(curl -s https://codecov.io/bash) -t 46172f04-1921-47f0-b0c3-b95c8afdba70
